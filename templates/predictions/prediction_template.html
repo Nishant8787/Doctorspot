@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - DoctorSpot{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title mb-0">{{ title }}</h3>
+                </div>
+                <div class="card-body">
+                    {% if result is not None %}
+                    <div class="alert {% if result %}alert-danger{% else %}alert-success{% endif %} mb-4">
+                        <h4 class="alert-heading">Prediction Result</h4>
+                        <p>Based on the parameters provided, our AI model predicts:</p>
+                        {% if result %}
+                        <p class="result-positive">Positive: High likelihood of {{ title|lower }} detected.</p>
+                        {% else %}
+                        <p class="result-negative">Negative: Low likelihood of {{ title|lower }} detected.</p>
+                        {% endif %}
+                        <hr>
+                        <p class="mb-0"><small><i class="fas fa-info-circle me-1"></i> This is for educational purposes only. Please consult a healthcare professional for proper diagnosis.</small></p>
+                    </div>
+                    
+                    <a href="{{ request.path }}" class="btn btn-outline-primary mb-4">
+                        <i class="fas fa-redo me-1"></i> Make Another Prediction
+                    </a>
+                    {% endif %}
+                    
+                    {% if result is None %}
+                    <form method="POST" class="form-container">
+                        {% csrf_token %}
+                        
+                        {% for field in form %}
+                        <div class="mb-3">
+                            <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                            {{ field }}
+                            {% if field.help_text %}
+                            <small class="form-text text-muted">{{ field.help_text }}</small>
+                            {% endif %}
+                            {% if field.errors %}
+                            <div class="text-danger">
+                                {% for error in field.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary py-2">
+                                <i class="fas fa-calculator me-1"></i> Calculate Prediction
+                            </button>
+                        </div>
+                    </form>
+                    {% endif %}
+                </div>
+                <div class="card-footer bg-light">
+                    <a href="{% url 'home' %}" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-1"></i> Back to Disease List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

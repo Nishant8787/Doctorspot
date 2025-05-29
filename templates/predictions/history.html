@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Prediction History - DoctorSpot{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h2 class="mb-4"><i class="fas fa-history me-2"></i>Your Prediction History</h2>
+    
+    {% if history %}
+    <div class="card shadow">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Date</th>
+                            <th>Disease</th>
+                            <th>Result</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entry in history %}
+                        <tr>
+                            <td>{{ entry.created_at|date:"M d, Y H:i" }}</td>
+                            <td>{{ entry.get_disease_type_display }}</td>
+                            <td>
+                                {% if entry.result %}
+                                <span class="badge bg-danger">Positive</span>
+                                {% else %}
+                                <span class="badge bg-success">Negative</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#details-{{ entry.id }}" aria-expanded="false">
+                                    <i class="fas fa-info-circle me-1"></i> Show Parameters
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="collapse" id="details-{{ entry.id }}">
+                            <td colspan="4">
+                                <div class="card card-body bg-light">
+                                    <h6>Parameters Used:</h6>
+                                    <ul>
+                                        {% for key, value in entry.parameters.items %}
+                                        <li><strong>{{ key|title }}:</strong> {{ value }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-info">
+        <i class="fas fa-info-circle me-2"></i> You haven't made any predictions yet.
+        <a href="{% url 'home' %}" class="alert-link">Go to the home page</a> to start making predictions.
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,241 @@
+{% extends 'base.html' %}
+
+{% block title %}DoctorSpot - AI Health Prediction{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="home-hero">
+    <div class="container">
+        <h1>Welcome to DoctorSpot</h1>
+        <p>AI-powered health diseases prediction platform for early disease detection. Get instant predictions for various health conditions based on your some basic parameters.</p>
+        {% if user.is_authenticated %}
+        <a href="#disease-cards" class="btn btn-light btn-lg px-4 py-2">
+            <i class="fas fa-stethoscope me-2"></i>Get Started
+        </a>
+        {% else %}
+        <a href="{% url 'login' %}" class="btn btn-light btn-lg me-2 px-4 py-2">
+            <i class="fas fa-sign-in-alt me-2"></i>Login
+        </a>
+        <a href="{% url 'register' %}" class="btn btn-outline-light btn-lg px-4 py-2">
+            <i class="fas fa-user-plus me-2"></i>Register
+        </a>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Disease Cards Section -->
+<section class="container" id="disease-cards">
+    <h2 class="text-center mb-4">Our Prediction Services</h2>
+    <p class="text-center mb-5">Select a disease category below to get a prediction based on your health parameters.</p>
+    
+    {% if not user.is_authenticated %}
+    <div class="alert alert-info mb-4" role="alert">
+        <i class="fas fa-info-circle me-2"></i> You need to <a href="{% url 'login' %}" class="alert-link">login</a> or <a href="{% url 'register' %}" class="alert-link">register</a> to use our prediction services.
+    </div>
+    {% endif %}
+    
+    <div class="row g-4">
+        <!-- BP Card -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-heart-pulse disease-icon"></i>
+                    <h5 class="card-title">Blood Pressure</h5>
+                    <p class="card-text">Predict hypertension risk based on your blood pressure readings and other factors.</p>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'predict_bp' %}" class="btn btn-primary">
+                        <i class="fas fa-arrow-right me-1"></i> Check Now
+                    </a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt me-1"></i> Login to Check
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Cancer Card -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-ribbon disease-icon"></i>
+                    <h5 class="card-title">Cancer Risk</h5>
+                    <p class="card-text">Assess potential cancer risk based on symptoms and risk factors.</p>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'predict_cancer' %}" class="btn btn-primary">
+                        <i class="fas fa-arrow-right me-1"></i> Check Now
+                    </a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt me-1"></i> Login to Check
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Thyroid Card -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-wind disease-icon"></i>
+                    <h5 class="card-title">Thyroid Condition</h5>
+                    <p class="card-text">Check for possible thyroid disorders based on hormone levels and symptoms.</p>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'predict_thyroid' %}" class="btn btn-primary">
+                        <i class="fas fa-arrow-right me-1"></i> Check Now
+                    </a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt me-1"></i> Login to Check
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Asthma Card -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-lungs disease-icon"></i>
+                    <h5 class="card-title">Asthma</h5>
+                    <p class="card-text">Predict asthma likelihood based on respiratory symptoms and risk factors.</p>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'predict_asthma' %}" class="btn btn-primary">
+                        <i class="fas fa-arrow-right me-1"></i> Check Now
+                    </a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt me-1"></i> Login to Check
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Lung Disease Card -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-lungs-virus disease-icon"></i>
+                    <h5 class="card-title">Lung Disease</h5>
+                    <p class="card-text">Assess risk of lung diseases based on respiratory symptoms and lifestyle factors.</p>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'predict_lung' %}" class="btn btn-primary">
+                        <i class="fas fa-arrow-right me-1"></i> Check Now
+                    </a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt me-1"></i> Login to Check
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Diabetes Card -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-syringe disease-icon"></i>
+                    <h5 class="card-title">Diabetes</h5>
+                    <p class="card-text">Predict diabetes risk using glucose levels and other health parameters.</p>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'predict_diabetes' %}" class="btn btn-primary">
+                        <i class="fas fa-arrow-right me-1"></i> Check Now
+                    </a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt me-1"></i> Login to Check
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Kidney Stone Card -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-kidneys disease-icon"></i>
+                    <h5 class="card-title">Kidney Stone</h5>
+                    <p class="card-text">Check likelihood of kidney stones based on symptoms and risk factors.</p>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'predict_kidney' %}" class="btn btn-primary">
+                        <i class="fas fa-arrow-right me-1"></i> Check Now
+                    </a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt me-1"></i> Login to Check
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Liver Disease Card -->
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-box-tissue disease-icon"></i>
+                    <h5 class="card-title">Liver Disease</h5>
+                    <p class="card-text">Assess liver health based on enzyme levels and other diagnostic parameters.</p>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'predict_liver' %}" class="btn btn-primary">
+                        <i class="fas fa-arrow-right me-1"></i> Check Now
+                    </a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt me-1"></i> Login to Check
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="container mt-5 py-5">
+    <h2 class="text-center mb-4">How It Works</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="row g-4">
+                <div class="col-md-4 text-center">
+                    <div class="rounded-circle bg-primary text-white d-inline-flex justify-content-center align-items-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-user-plus fa-2x"></i>
+                    </div>
+                    <h5>Create Account</h5>
+                    <p>Register and set up your profile to access all prediction services.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="rounded-circle bg-primary text-white d-inline-flex justify-content-center align-items-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-clipboard-list fa-2x"></i>
+                    </div>
+                    <h5>Enter Parameters</h5>
+                    <p>Input your health parameters for the disease you want to check.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="rounded-circle bg-primary text-white d-inline-flex justify-content-center align-items-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-chart-line fa-2x"></i>
+                    </div>
+                    <h5>Get Results</h5>
+                    <p>Receive instant AI-powered prediction results and save your history.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Disclaimer Section -->
+<section class="container my-5 py-3 bg-light rounded">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h4><i class="fas fa-exclamation-triangle text-warning me-2"></i>Medical Disclaimer</h4>
+            <p>DoctorSpot provides predictions for educational purposes only and is not intended to replace professional medical diagnosis or advice. Always consult with a qualified healthcare provider for proper diagnosis and treatment of medical conditions.It is basically made for practice purpose for enhancing my development skill. Thank you all from Nisanta Nath.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
