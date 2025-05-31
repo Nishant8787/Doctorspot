@@ -22,7 +22,7 @@ ALLOWED_HOSTS = ['doctorspot-1.onrender.com']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
-
+DEBUG = 'True'
 ALLOWED_HOSTS = ['*']
 
 
@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'doctorspot.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Doctorspot',
+        'NAME': 'doctorspot',
         'USER': 'root',
         'PASSWORD': '12345',  # Make sure this is correct!
         'HOST': 'localhost',
