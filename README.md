@@ -84,7 +84,7 @@ python manage.py runserver
 - for review just visit this link - https://doctorspot-1.onrender.com
 
 ## Design and Images
--![Home Page]("C:\Users\nisan\OneDrive\Desktop\D-Spot\Home.png")
+-![Home Page]("Home.png")
 
 
 ## Important Note
