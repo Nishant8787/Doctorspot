@@ -83,6 +83,10 @@ python manage.py runserver
 - `media/`: User-uploaded files
 - for review just visit this link - https://doctorspot-1.onrender.com
 
+## Design and Images
+-![Home Page]("C:\Users\nisan\OneDrive\Desktop\D-Spot\Home.png")
+
+
 ## Important Note
 
 This application is for educational and demonstration purposes only. The prediction models used are simplified and not meant for actual medical diagnosis. Always consult with a qualified healthcare provider for proper diagnosis and treatment of medical conditions. And I dont have any database for hosting im unable to give you link to check my website in working condition properly but you can clone and check in your local system and for website UI and functionality you can visit my render.com profile link which ive mentioned(https://doctorspot-1.onrender.com).
