@@ -22,7 +22,7 @@ ALLOWED_HOSTS = ['doctorspot-1.onrender.com']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
-
+DEBUG = 'True'
 ALLOWED_HOSTS = ['*']
 
 
