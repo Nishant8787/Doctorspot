@@ -85,11 +85,12 @@ python manage.py runserver
 
 ## Design and Images
 ![Image](https://github.com/user-attachments/assets/d5d6720b-8561-4d31-a186-409c4a7089b4)
+![Image](https://github.com/user-attachments/assets/5baf6497-cbe9-4589-9edd-0feaba57f849)
 ![Image](https://github.com/user-attachments/assets/e842c731-a189-4364-a097-b7624591bfcd)
 ![Image](https://github.com/user-attachments/assets/c6d7cc3e-f0b1-463f-b4d8-f76b4e2fe096)
-![Image](https://github.com/user-attachments/assets/5baf6497-cbe9-4589-9edd-0feaba57f849)
-![Image](https://github.com/user-attachments/assets/c8aa0a30-f406-4de0-8387-419b5da43e5c)
 ![Image](https://github.com/user-attachments/assets/d3b7786f-9d9f-4aaf-a23c-06764d5fa14d)
+![Image](https://github.com/user-attachments/assets/c8aa0a30-f406-4de0-8387-419b5da43e5c)
+
 
 
 
