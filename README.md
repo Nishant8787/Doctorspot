@@ -81,6 +81,7 @@ python manage.py runserver
 - `templates/`: HTML templates
 - `static/`: Static files (CSS, JavaScript, images)
 - `media/`: User-uploaded files
+- for review just visit this link - https://doctorspot-1.onrender.com
 
 ## Important Note
 
