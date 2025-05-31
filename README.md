@@ -84,7 +84,13 @@ python manage.py runserver
 - for review just visit this link - https://doctorspot-1.onrender.com
 
 ## Design and Images
--![Home Page]("Home.png")
+- ![Home Page]("media/D-Spot/Home.png")
+- ![Register Page]("media/D-Spot/Register.png")
+- ![Login Page]("media/D-Spot/Login.png")
+- ![Service Page]("media/D-Spot/Service.png")
+- ![Prediction Page]("media/D-Spot/Prediction.png")
+- ![result Page]("media/D-Spot/result.png")
+
 
 
 ## Important Note
