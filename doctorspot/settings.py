@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'doctorspot.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Doctorspot',
+        'NAME': 'doctorspot',
         'USER': 'root',
         'PASSWORD': '12345',  # Make sure this is correct!
         'HOST': 'localhost',
